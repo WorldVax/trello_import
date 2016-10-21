@@ -1,0 +1,101 @@
+[
+    {
+        "title": "Caregiver: Patient Profile Review #phase1",
+        "body": "AS A Caregiver\nI WANT TO review a Patient Profile\nSO THAT I can confirm I'm treating the right patient\n\n\n### Implementation Tasks\n- [ ] Create the patient profile view\n- [ ] Create the patient service\n- [ ] Create the database service\n### Acceptance Criteria\n- [ ] Select a patient from the patient selector\n- [ ] The view should display the patient picture\n- [ ] The view should display the patient identifying information\n- [ ] The view should display the patient medical information\n- [ ] The app should navigate to the patient view\n### History\n2015-08-23T23:42:14.190Z @dennisdunn (Dennis Dunn)\n> plus! 0/2 \n2015-08-23T23:41:54.800Z @dennisdunn (Dennis Dunn)\n> This is a view of the patient record and a related medical record. There are at least 2 widgets, maybe more. It will also be one of the first screens to build so it will be a learning experience.\n2015-08-04T03:19:05.530Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/EYBQtbqf/31-patient-profile-view-phase1 \nhttps://trello.com/c/4h8Btzvk/48-patient-profile-photo-widget-phase1\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Intake Screener: Add New Patient #phase1",
+        "body": "AS A Intake Screener\nI WANT TO add a Patient Profile\nSO THAT the patient can be seen for treatment\n\n### Acceptance Criteria\n- [ ] From any view displaying the floating action button (FAB)\n- [ ] Click the FAB\n- [ ] The app should navigate to the patient edit view\n- [ ] Enter minimal patient information\n- [ ] Click the Save button\n- [ ] The app should navigate to the patient view\n- [ ] The patient view should display the newly added patient informaition\n### Implementation Tasks\n- [ ] Create  the patient-edit view - an editable version of the patient view\n- [ ] Add an insert method to the patient service\n- [ ] Make any require changes to the database service\n- [ ] Add navigation to this view from the global FAB\n### History\n2015-08-24T23:55:24.847Z @xagronaut (Jeffrey A. Miller)\n> plus! @dennisdunn 0/1 \n2015-08-24T23:54:13.610Z @xagronaut (Jeffrey A. Miller)\n> See Patient Profile edit view for comments on edit mode behavior.\n2015-08-24T23:38:13.536Z @xagronaut (Jeffrey A. Miller)\n> The story has been renamed to reflect that the critical action is the addition of a new patient record. The Intake Screener should exercise due diligence in search first for a match before simply adding what could be a duplicate record, but the essential action has less to do with the Patient Queue and more to do with initial details of the patient.\n2015-08-24T00:02:29.828Z @dennisdunn (Dennis Dunn)\n> This is the \"edit\" view for patient information. Clicking a button will load the patient info into an editor, clicking another button with save or discard the changes. We should take a look at how other mobile apps handle this. Data binding updates the view model and a command on the view model does the save. We have to figure out how to navigate from a read-only view to an edit view and back again.\n2015-08-23T23:59:44.664Z @dennisdunn (Dennis Dunn)\n> plus! 0/3 \n2015-08-04T03:20:08.682Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/Q3qQrpG9/32-patient-profile-edit-phase1\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Field User: Change application settings #phase1",
+        "body": "\n\n### Implementation Tasks\n- [ ] Create a settings view\n- [ ] Create the settings service\n- [ ] Add navigation to this view from the global menu\n- [ ] Create a settings repository using local storage\n### Acceptance Criteria\n- [ ] Expand the hamburger menu\n- [ ] Select the Settings menu option\n- [ ] The app should expand the settings view\n- [ ] The settings view will display the values stored in the settings repository\n- [ ] Change the value of a setting\n- [ ] Exit and return to the settings view\n- [ ] The newly changed setting should display the new vaule\n### History\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Caregiver: Patient Recommendation Review #phase1",
+        "body": "AS A Caregiver\nI WANT TO review the Immunization recommendations\nSO THAT I can know which vaccines to give\n\n\n### Implementation tasks\n- [ ] Add the immunization history to the patient view\n- [ ] Add the history to the model\n- [ ] Update the patient service to provide the history for the patient\n### Acceptance Criteria\n- [ ] Navigate to the patient view\n- [ ] The patient view should display the immunization history for the patient\n### History\n2015-08-24T22:53:56.535Z @xagronaut (Jeffrey A. Miller)\n> @dennisdunn There are some events that require re-forecasting: additions/deletions in immunization history, changing certain key details of past immunizations (date, vaccine delivered), and the passage of time (like rotavirus no longer being needed after a given age-8 mos.).\n\nIn all other cases, once a forecast has been calculated, it is \"good all day\" and can be passed around.\n2015-08-23T23:37:54.027Z @dennisdunn (Dennis Dunn)\n> The Schedule Vaccination list is updated as the result of a forecast. The results should be persisted so that other users don't need to run the forecast. We need to simply bind the view model and the updates will happen.\n2015-08-23T23:37:50.727Z @dennisdunn (Dennis Dunn)\n> plus! 0/1 \n2015-08-04T03:19:39.196Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/MyU87KyG/33-immunization-history-view-widget-phase1\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Field User: User Works Offline #phase1",
+        "body": "AS A Field User\nI WANT TO be able to use all functions of the application even in the absence of the supporting server\nSO THAT I can continue to provide treatment\n\n### Implementation Tasks\n- [ ] Add sync target URL setting\n- [ ] Add settings for credentials\n- [ ] Add a sync service with method stubs\n- [ ] Add \"initiate sync\" UI component to the settings view\n### Acceptance Criteria\n- [ ] Navigate to the settings view\n- [ ] The settings view should have editable fields for the sync parameters\n- [ ] After changing the sync options, navigating back to the settings view will show the new values\n### History\n2015-08-24T23:35:32.135Z @xagronaut (Jeffrey A. Miller)\n> The learning curve of the persistence framework (PouchDB or other) should factor into the estimate because it is a new tool/technology to the team.\n2015-08-24T23:33:14.556Z @xagronaut (Jeffrey A. Miller)\n> plus! @dennisdunn 0/1 \n2015-08-23T23:49:27.301Z @dennisdunn (Dennis Dunn)\n> The current development methodology is to get the app working as a web site using local storage and then add the synchronization piece. If the local storage problem is solved then so is this story.\n2015-08-23T23:49:23.865Z @dennisdunn (Dennis Dunn)\n> plus! 0/2 \n2015-07-27T22:54:15.034Z @xagronaut (Jeffrey A. Miller)\n> This uses the Local Device Storage framework.\n\nhttps://trello.com/c/ewgm4uRh/26-local-device-storage\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Caregiver: Patient Profile Add Current Vaccination #phase1",
+        "body": "AS A Caregiver\nI WANT TO add a vaccination administered to a Patient Profile\nSO THAT it reflects the treatment given\n\n\n### Implementation tasks\n- [ ] Create the modal record-vaccination view\n- [ ] Create the vaccination service\n- [ ] Add navigation to this view from the global FAB\n### Acceptance Criteria\n- [ ] Click on the FAB to expand the FAB menu\n- [ ] Select the \"record immunization\" menu item\n- [ ] The app will display the modal record immunization dialog\n### History\n2015-08-24T23:11:55.049Z @xagronaut (Jeffrey A. Miller)\n> plus! @dennisdunn 0/1 \n2015-08-24T23:04:50.354Z @xagronaut (Jeffrey A. Miller)\n> Form factor may affect implementation as to whether we use a modal popup. Phones, for instance, may not be well-suited for a completely new popup; they may be handled in other ways, like a sliding panel.\n\nFor MVP purposes, we are assuming it works on a phone. This will necessitate research into phone-friendly metaphors in the chosen framework, such as sliding panels. (Dennis - \"copy Facebook\")\n\nInteresting concepts:\n\n* Date entry (HTML5 should help here - input type=\"date\"?)\n* Conditional list lookup (Vaccine Group --> Lot #'s)\n* Dialog/slide-out panel handling\n\nThese should be solved once and then propagated consistently.\n2015-08-23T23:29:13.659Z @dennisdunn (Dennis Dunn)\n> plus! 0/1 \n2015-08-23T23:27:09.808Z @dennisdunn (Dennis Dunn)\n> Given that we have the dialog and the list of available vaccines then clicking the OK button will add the selected vaccine to the patient, persist the choice, update the view model, and trigger a forecast.\n2015-08-17T17:08:08.276Z @xagronaut (Jeffrey A. Miller)\n> This needs a vaccine/lot lookup list.\n2015-08-04T03:18:13.866Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/4UkfZU0w/34-immunization-history-edit-phase1\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Caregiver: Patient Profile Add Historical Vaccination #phase1",
+        "body": "AS A Caregiver\nI WANT TO add a vaccination administered in the past to a Patient Profile\nSO THAT it reflects prior treatment\n\n\n### Implementation Tasks\n### Acceptance Criteria\n### History\n2016-04-29T00:23:23.700Z @dennisdunn (Dennis Dunn)\n> The only real difference between this and \"record current vaccination\" is that this dialog has a date. For \"record current\" we could use this dialog with the date pre-filled with the current date.\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Field User: Pin Patient to List #phase1",
+        "body": "AS A Field User\nI WANT TO pin a search result to a remembered list\nSO THAT I can quickly return to the Patient Profile\n\n### Implementation Tasks\n- [ ] Add a \"pill list\" to the search results screen\n- [ ] Implement drag-n-drop from a patient card to the pill list\n- [ ] Create a queue view\n- [ ] Create a queue service\n- [ ] Add a queued-items design document to the db service\n### Acceptance Criteria\n### History\n2016-04-14T17:11:59.000Z @dennisdunn (Dennis Dunn)\n> A \"pill\" is a representation of an item from a list.  The user selects an item, such as a card, by dragging the item to a container. A pill is created in the container to represent the item allowing a more compact representation of a list of selections. A pill is almost like an avatar or badges icon.\n\nHth,\nD.\n2016-04-14T14:09:02.894Z @xagronaut (Jeffrey A. Miller)\n> @dennisdunn I found this: http://www.gumbyframework.com/docs/ui-kit/#!/tabs for the mention of \"pills\" in user interface, specifically \"pill tabs\". Am I on the right track?\n2016-04-14T13:56:54.376Z @xagronaut (Jeffrey A. Miller)\n> @dennisdunn Please clarify \"pill list\". I Googled it several ways and only found drug list mobiles apps. Sorry for my ignorance.\n2015-08-25T00:05:40.899Z @xagronaut (Jeffrey A. Miller)\n> plus! 0/2 \n2015-08-23T23:53:28.935Z @dennisdunn (Dennis Dunn)\n> This story needs clarification. Currently the demo app switches between two screens, search results and current patient. Would a most-recently-used list satisfy this story? \n\nThe other use case that I see is to select patients from a search results that the user wants to download to the local device for offline use.\n\nI'm going with the first use case for this estimate.\n2015-08-23T23:53:26.930Z @dennisdunn (Dennis Dunn)\n> plus! 0/1 \n2015-08-04T03:17:19.159Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/XZGQypA3/28-patient-search-results-phase1\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Outbound Counselor: Patient Profile Review Forecast #phase1",
+        "body": "AS A Outbound Counselor\nI WANT TO review the Patient Immunization Forecast\nSO THAT I can see the recommended schedule the next treatment\n\nNote (JM, 04/14/2016): This user story implies that the CDSi feature is available to produce a forecast.\n\n### Implementation Tasks\n- [ ] Create a next-scheduled-vaccination entry in the history for the patient\n- [ ] Use the add-vaccination modal but use a date in the future\n- [ ] A navigation from the FAB\n- [ ] Alter the immunization history view to indicate which immunizations are scheduled.\n### Acceptance Criteria\n### History\n2015-08-24T23:27:22.092Z @xagronaut (Jeffrey A. Miller)\n> plus! 0/3 \n2015-08-24T23:27:15.902Z @xagronaut (Jeffrey A. Miller)\n> Appointment modeling, including the source of the appointment (auto-generated vs. manual override), the person scheduling the appointment, etc. will be needed. The appointment will be overridable/editable, even after the suggestion provided by the scheduling projection.\n2015-08-24T23:16:53.769Z @xagronaut (Jeffrey A. Miller)\n> The ability to enter the next appointment date based on the suggested CDSi-derived date will be necessary so that the patient can obtain proper follow-up care and notification (ex: SMS to parent's cell phone).\n\nThis is not yet reflected in the current wireframes.\n2015-08-04T03:21:04.390Z @xagronaut (Jeffrey A. Miller)\n> Uses:\nhttps://trello.com/c/MyU87KyG/33-immunization-history-view-widget-phase1 \nhttps://trello.com/c/coq2jcal/35-immunization-profile-visualization-phase2\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Outbound Counselor: Plan Next Appointment #phase1",
+        "body": "AS A Outbound Counselor\nI WANT TO enter an appointment date for follow-up care\nSO THAT the Patient maintains continuity of care and establishes proper immunity\n\n\n\n### Implementation Tasks\n### Acceptance Criteria\n### History\n2016-04-29T00:28:19.156Z @dennisdunn (Dennis Dunn)\n> Could this be an interface to a third-party calendar tool?\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    },
+    {
+        "title": "Field User: Log Patient Encounter #phase1",
+        "body": "AS A Field User\nI WANT TO have a record of Patients seen or treated\nSO THAT each Patient's treatment history is up-to-date, and team activity can be reported and reviewed.\n\nNote (JM, 04/14/2016): There may or may not be any user interface required for this feature. It is a non-functional requirement that facilitates future planning and reporting.\n\n### Implementation Tasks\n### Acceptance Criteria\n### History\n",
+        "labels": [
+            "User Story",
+            "Phase 1",
+            "P2"
+        ]
+    }
+]

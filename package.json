@@ -1,0 +1,14 @@
+{
+  "name": "trell_import",
+  "version": "0.1.0",
+  "description": "Import a Trello list as Github issues.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dennis Dunn",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
