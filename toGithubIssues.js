@@ -20,20 +20,28 @@ function main() {
 }
 
 function createCheckList(list) {
-    var str = '### ' + list.name + '\n';
+    var str = '### ' + list.name + '\n\n';
     _.each(list.items, function (item) {
         str = str + '- [ ] ' + item + '\n';
     });
-    return str;
+    return str + '\n';
 }
 
-function createHistory(list){
-    var str = '### History\n';
-    _.each(list, function (item) {
-        str = str + item.date + ' @' + item.username + ' (' + item.member +')\n';
-        str = str + '> ' + item.text + '\n';
-    });
-    return str;
+function createHistory(list) {
+    if (list.length > 0) {
+        var str = '### History\n\n';
+        _.each(list, function (item) {
+            str = str + '\n' + item.date + ' @' + item.username + ' (' + item.member + ')\n';
+            _.each(item.text.split('\n'), function (line) {
+                str = str + '> ' + line + '\n';
+            });
+            str = str + '\n';
+        });
+        return str;
+    }
+    else {
+        return "";
+    }
 }
 
 

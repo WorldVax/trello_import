@@ -15,9 +15,9 @@ function main() {
 function createIssue(card) {
     var issue = {
         'id': card.id,
-        'name': card.name,
+        'name': card.name.replace('#phase1', ''),
         'text': card.desc,
-        'labels': ['User Story', 'Phase 1', 'P2'],
+        'labels': ['user story', 'phase1'],
         'lists': [],
         'history': []
     };
@@ -26,12 +26,15 @@ function createIssue(card) {
         if (list) issue.lists.push(list);
     });
     var history = _.filter(board.actions, function (action) {
+
         return (action.type == 'commentCard' || action.type == 'copyCommentCard') && action.data.card.id == card.id;
     });
-    _.each(history, function (action) {
-        var event = createHistory(action);
-        if (event) issue.history.push(event);
-    })
+    if (history.length > 0) {
+        _.each(history, function (action) {
+            var event = createHistory(action);
+            if (event) issue.history.push(event);
+        });
+    };
     return issue;
 }
 
@@ -44,11 +47,15 @@ function createList(listId) {
     var checklist = _.find(board.checklists, function (item) {
         return item.id === listId;
     });
-    list.name = checklist.name;
-    _.each(checklist.checkItems, function (item) {
-        list.items.push(item.name);
-    });
-    return list;
+    if (checklist.checkItems.length > 0) {
+        list.name = checklist.name;
+        _.each(checklist.checkItems, function (item) {
+            list.items.push(item.name);
+        });
+        return list;
+    } else {
+        return null;
+    }
 }
 
 function createHistory(action) {

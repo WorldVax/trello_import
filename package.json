@@ -1,7 +1,7 @@
 {
-  "name": "trell_import",
+  "name": "trello_import",
   "version": "0.1.0",
-  "description": "Import a Trello list as Github issues.",
+  "description": "Import a Trello board as Github issues.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "Dennis Dunn",
   "license": "MIT",
   "dependencies": {
+    "octonode": "^0.7.6",
     "underscore": "^1.8.3"
   }
 }
